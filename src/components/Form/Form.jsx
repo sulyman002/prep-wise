@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import prep_logo from "../assets/prep_wise logo.svg";
+import prep_logo from "../assets/prep_wise_logo.svg";
 import background_image from "../assets/bg_image.png";
 import upload_image from "../assets/upload_icon.svg";
 
@@ -26,17 +26,17 @@ export const Form = () => {
     let isError = {};
     if (!checkInput.name.trim()) {
       isError.name = "Name is required";
-    } else if (!checkInput.password.trim()) {
+    } if (!checkInput.password.trim()) {
       isError.password = "Password is required";
-    } else if (checkInput.password.length < 7) {
+    } if (checkInput.password.length < 7) {
       isError.password = "Password should be more than 7 digits";
-    } else if (!checkInput.email) {
+    } if (!checkInput.email) {
       isError.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(checkInput.email)) {
+    } if (!/\S+@\S+\.\S+/.test(checkInput.email)) {
       isError.email = "Email is invalid";
-    } else if (!checkInput.profilePicture) {
+    } if (!checkInput.profilePicture) {
       isError.profilePicture = "Profile Picture is required";
-    } else if (!checkInput.resume) {
+    } if (!checkInput.resume) {
       isError.resume = "Your RESUME must be presented";
     }
     return isError;
@@ -51,7 +51,7 @@ export const Form = () => {
   return (
     <div
       style={{ backgroundImage: `url(${background_image})` }}
-      className="bg-[#08090D] text-[#FFFFFF] w-full h-screen flex items-center justify-center"
+      className="border-gray-300/40 text-[#FFFFFF] w-full h-screen flex items-center justify-center"
     >
       <form
         onSubmit={handleSubmit}
