@@ -51,7 +51,7 @@ export const Form = () => {
   return (
     <div
       style={{ backgroundImage: `url(${background_image})` }}
-      className="border-gray-300/40 text-[#FFFFFF] w-full h-screen flex items-center justify-center"
+      className="border-gray-300/40 bg-[#08090D] text-[#FFFFFF] w-full h-screen flex items-center justify-center"
     >
       <form
         onSubmit={handleSubmit}
