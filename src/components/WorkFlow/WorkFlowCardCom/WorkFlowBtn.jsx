@@ -23,7 +23,7 @@ export const WorkFlowBtn = () => {
 
           <div onClick={() => {
             navigate("/FeedBack")
-          }} className="cursor-pointer px-8 py-4 rounded-full flex items-center justify-center gap-2 bg-[#F75353] ">
+          }} className="cursor-pointer mt-4 px-8 py-4 rounded-full flex items-center justify-center gap-2 bg-[#F75353] ">
             <img src={leave_interview} alt="" />
             <span className="font-600 font-semibold text-[18px] leading-[28px] ">
               Leave Interview
