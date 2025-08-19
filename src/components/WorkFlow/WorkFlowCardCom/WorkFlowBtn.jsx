@@ -8,11 +8,11 @@ export const WorkFlowBtn = () => {
   return (
     <div>
       <div className="pt-4">
-        <div className="md:flex gap-4 items-center justify-center ">
+        <div className="md:flex flex-col md:flex-row gap-4 items-center justify-center ">
           <div onClick={() => {
-            setInterval(() => {
+            // setInterval(() => {}, 2000);
                 navigate("/InterviewConfirmation")
-            }, 2000);
+            
             
           }} className="cursor-pointer px-16 py-4 rounded-full flex items-center justify-center gap-2 bg-[#24273A] ">
             <img src={repeat_interview} alt="" />
@@ -23,7 +23,7 @@ export const WorkFlowBtn = () => {
 
           <div onClick={() => {
             navigate("/FeedBack")
-          }} className="cursor-pointer mt-4 px-8 py-4 rounded-full flex items-center justify-center gap-2 bg-[#F75353] ">
+          }} className="cursor-pointer  px-8 py-4 rounded-full flex items-center justify-center gap-2 bg-[#F75353] ">
             <img src={leave_interview} alt="" />
             <span className="font-600 font-semibold text-[18px] leading-[28px] ">
               Leave Interview
