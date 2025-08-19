@@ -52,21 +52,21 @@ export const Form = () => {
 
   const navigate = useNavigate();
 
+  
+
+
   function handleSubmit(event) {
-    event.preventDefault();
-    const errorMessage = handleValidate();
-    setError(errorMessage);
-    const { name, email, password, profilePicture, resume } = checkInput;
-    if (
-      name.trim().length > 7 &&
-      email.includes("@") &&
-      password.length >= 7 &&
-      profilePicture &&
-      resume
-    ) {
-      navigate("/dashboard");
-    }
+  event.preventDefault();
+
+ 
+  const validationErrors = handleValidate();
+  setError(validationErrors);
+
+ 
+  if (Object.keys(validationErrors).length === 0) {
+    navigate("/dashboard");
   }
+}
 
 
 
@@ -217,3 +217,115 @@ export const Form = () => {
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function handleSubmit(event) {
+  //   event.preventDefault();
+  //   const errorMessage = handleValidate();
+  //   setError(errorMessage);
+  //   const { name, email, password, profilePicture, resume } = checkInput;
+  //   if (
+  //     name.trim().length > 7 &&
+  //     email.includes("@") &&
+  //     password.length >= 7 &&
+  //     profilePicture &&
+  //     resume
+  //   ) {
+  //     navigate("/dashboard");
+  //   }
+  // }
