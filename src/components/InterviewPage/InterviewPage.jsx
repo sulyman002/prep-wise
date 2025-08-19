@@ -2,10 +2,11 @@ import React from "react";
 import background_image from "../assets/bg_image.png";
 import { LogoAndProfile } from "../PostReview/LogoAndProfile/LogoAndProfile.jsx";
 import pastInterviewData from "../PostReview/Interview/PastInterviewData.js";
-import { InterviewTitle } from "./InterviewTitle.jsx";
-import { WorkFlowCard } from "./WorkFlowCardCom/WorkFlowCard.jsx";
+import { InterviewTitle } from "../WorkFlow/InterviewTitle.jsx";
+import { WorkFlowC } from "../WorkFlow/WorkFlowCardCom/WorkFlowC.jsx";
+import { WorkFlowBtn } from "../WorkFlow/WorkFlowCardCom/WorkFlowBtn.jsx"
 
-export const WorkflowPage = () => {
+export const InterviewPage = () => {
   return (
     <div
       className=" flex flex-col h-auto bg-[#08090D] text-[#FFFFFF] w-full p-4 md:px-16 lg:px-20 xl:px-40 md:py-14"
@@ -25,7 +26,19 @@ export const WorkflowPage = () => {
           />
         );
       })}
-      <WorkFlowCard />
+      <WorkFlowC />
+      <div className="rounded-[10px] flex items-center justify-center py-6 bg-gradient-to-b from-[#1A1C20] to-[#0e0e1b] my-4 shadow-4xl">
+        <p className="font-400 text-center text-[20px] md:text-[24px] leading-[34px]">
+          What is the{" "}
+          <span className="font-400 text-[20px] md:text-[24px] leading-[34px] bg-white rounded-[6px] text-black p-[5px] ">
+            {" "}
+            Virtual DOm
+          </span>{" "}
+          in React.js and how does it work?
+        </p>
+      </div>
+      <WorkFlowBtn />
+
     </div>
   );
 };

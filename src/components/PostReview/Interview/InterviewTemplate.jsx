@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const InterviewTemplate = (props) => {
+  const navigate = useNavigate();
+
+ 
   return (
     <div className="flex flex-col p-6 gap-6 border-[2px] rounded-[16px] bg-gradient-to-b from-[#1A1C20] to-[#08090D] border-gray-300/40 ">
       <div className="h-[80px] w-[80px] md:h-[90px] md:w-[90px] rounded-full py-2 ">
@@ -34,7 +38,9 @@ export const InterviewTemplate = (props) => {
             </div>
             
           </div>
-          <button className="py-[16px] cursor-pointer md:py-[14px] px-[20px] md:px-[32px] bg-[#CAC5FE] rounded-full font-semibold text-black">
+          <button onClick={() => {
+              navigate(`/WorkflowPage/${props.id}`)
+          }} className="py-[16px] cursor-pointer md:py-[14px] px-[20px] md:px-[32px] bg-[#CAC5FE] rounded-full font-semibold text-black">
             View Interview
           </button>
         </div>

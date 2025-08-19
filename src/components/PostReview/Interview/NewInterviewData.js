@@ -14,7 +14,7 @@ import star_icon from "../../assets/general/star.svg"
 
 const newInterviewData = [
   {
-    "id": 1,
+    "id": 4,
     "title": "Full-Stack Dev Interview",
     "type": "Technical",
     "date": {
@@ -31,7 +31,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 2,
+    "id": 5,
     "title": "DevOps & Cloud Interview",
     "type": "Technical",
     "date": {
@@ -48,7 +48,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 3,
+    "id": 6,
     "title": "HR Screening Interview",
     "type": "Non-Technical",
     "date": {
@@ -65,7 +65,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 4,
+    "id": 7,
     "title": "System Design Interview",
     "type": "Technical",
     "date": {
@@ -82,7 +82,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 5,
+    "id": 8,
     "title": "Business Analyst Interview",
     "type": "Non-Technical",
     "date": {
@@ -99,7 +99,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 6,
+    "id": 9,
     "title": "Mobile App Dev Interview",
     "type": "Technical",
     "date": {
@@ -116,7 +116,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 7,
+    "id": 10,
     "title": "Database & SQL Interview",
     "type": "Technical",
     "date": {
@@ -133,7 +133,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 8,
+    "id": 11,
     "title": "Cybersecurity Interview",
     "type": "Technical",
     "date": {
@@ -150,7 +150,7 @@ const newInterviewData = [
     "buttonText": "Take interview"
   },
   {
-    "id": 9,
+    "id": 12,
     "title": "Sales & Marketing Interview",
     "type": "Non-Technical",
     "date": {

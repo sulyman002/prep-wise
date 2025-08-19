@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import prep_logo from "../assets/prep_wise_logo.svg";
 import background_image from "../assets/bg_image.png";
 import upload_image from "../assets/upload_icon.svg";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
   const [checkInput, setCheckInput] = useState({
@@ -13,49 +14,68 @@ export const Form = () => {
   });
 
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name, value, files, type } = event.target;
     setCheckInput((previousData) => ({
       ...previousData,
-      [name]: value,
+      [name]: type === "file" ? files[0] : value,
     }));
   }
 
   const [error, setError] = useState({});
 
+
   function handleValidate() {
     let isError = {};
     if (!checkInput.name.trim()) {
       isError.name = "Name is required";
-    } if (!checkInput.password.trim()) {
+    }
+    if (!checkInput.password.trim()) {
       isError.password = "Password is required";
-    } if (checkInput.password.length < 7) {
+    }
+    if (checkInput.password.length < 7) {
       isError.password = "Password should be more than 7 digits";
-    } if (!checkInput.email) {
+    }
+    if (!checkInput.email) {
       isError.email = "Email is required";
-    } if (!/\S+@\S+\.\S+/.test(checkInput.email)) {
+    }
+    if (!/\S+@\S+\.\S+/.test(checkInput.email)) {
       isError.email = "Email is invalid";
-    } if (!checkInput.profilePicture) {
+    }
+    if (!checkInput.profilePicture) {
       isError.profilePicture = "Profile Picture is required";
-    } if (!checkInput.resume) {
+    }
+    if (!checkInput.resume) {
       isError.resume = "Your RESUME must be presented";
     }
     return isError;
   }
 
+  const navigate = useNavigate();
+
   function handleSubmit(event) {
     event.preventDefault();
     const errorMessage = handleValidate();
     setError(errorMessage);
+    const { name, email, password, profilePicture, resume } = checkInput;
+    if (
+      name.trim().length > 7 &&
+      email.includes("@") &&
+      password.length >= 7 &&
+      profilePicture &&
+      resume
+    ) {
+      navigate("/dashboard");
+    }
   }
 
   return (
     <div
       style={{ backgroundImage: `url(${background_image})` }}
-      className="border-gray-300/40 bg-[#08090D] text-[#FFFFFF] w-full h-screen flex items-center justify-center"
+      className="border-gray-300/20 bg-[#08090D] text-[#FFFFFF] w-full h-auto flex items-center justify-center"
     >
       <form
         onSubmit={handleSubmit}
-        className=" flex flex-col w-[566px] gap-4 border-[2px] border-[#4B4D4F]/20 bg-gradient-to-b from-[#1A1C20] to-[#08090D] py-10 px-8 rounded-[20px] shadow-[#4B4D4F]/20 shadow-sm"
+        className=" flex flex-col w-[566px] gap-4 border-[2px] border-[#4B4D4F]/20 bg-gradient-to-b from-[#1A1C20] to-[#08090D] py-10 my-10 px-8 rounded-[20px] shadow-[#4B4D4F]/20 shadow-sm"
       >
         <div className="flex items-center justify-center gap-2 py-4">
           <img src={prep_logo} alt="" />
@@ -74,6 +94,7 @@ export const Form = () => {
             </span>
             <input
               onChange={handleChange}
+              value={checkInput.name}
               name="name"
               type="text"
               placeholder="Adrian Hajdin"
@@ -93,6 +114,7 @@ export const Form = () => {
             </span>
             <input
               onChange={handleChange}
+              value={checkInput.email}
               name="email"
               type="text"
               placeholder="adrian@jsmastery.prol"
@@ -112,6 +134,7 @@ export const Form = () => {
             </span>
             <input
               onChange={handleChange}
+              value={checkInput.password}
               name="password"
               type="password"
               placeholder="Enter your password"
@@ -131,13 +154,14 @@ export const Form = () => {
             <div className="flex items-center justify-center gap-2 bg-[#27282F] py-4 rounded-full">
               <img src={upload_image} alt="" />
               <label
-                for="fileInput"
+                htmlFor="fileInput"
                 className=" cursor-pointer text-[#D6E0FF] text-[16px]"
               >
                 Upload an image
               </label>
               <input
                 name="profilePicture"
+                onChange={handleChange}
                 id="fileInput"
                 type="file"
                 accept="image/png, image/jpeg"
@@ -158,14 +182,15 @@ export const Form = () => {
             <div className="flex items-center justify-center gap-2 bg-[#27282F] py-4 rounded-full">
               <img src={upload_image} alt="" />
               <label
-                for="fileInput"
+                htmlFor="forResume"
                 className=" cursor-pointer text-[#D6E0FF] text-[16px]"
               >
                 Upload a pdf
               </label>
               <input
+                onChange={handleChange}
                 name="resume"
-                id="fileInput"
+                id="forResume"
                 type="file"
                 accept="application/pdf"
                 className="hidden"
