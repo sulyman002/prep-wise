@@ -3,8 +3,11 @@ import background_image from "../assets/bg_image.png";
 import { LogoAndProfile } from "../PostReview/LogoAndProfile/LogoAndProfile.jsx";
 import star_icon from "../assets/general/star.svg";
 import calendar_icon from "../assets/general/calender.svg";
+import { useNavigate } from "react-router-dom";
 
 export const FeedBack = () => {
+
+  const navigate = useNavigate();
   return (
     <div
       className=" flex flex-col h-auto bg-[#08090D] text-[#FFFFFF] w-full p-4 md:px-16 lg:px-20 xl:px-40 md:py-14"
@@ -107,13 +110,16 @@ export const FeedBack = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6 py-4 md:flex-row ">
-            <div
+            <div onClick={() => 
+              navigate("/dashboard")
+            }
               className="flex md:w-full items-center py-3 justify-center rounded-full font-700 font-bold text-[14px] 
           md:text-[16px] leading-[24px] text-[#CAC5FE] bg-[#27282F] "
             >
               Back to dashboard
             </div>
             <div
+            onClick={() => navigate("/InterviewPage")}
               className="flex md:w-full items-center py-3 justify-center rounded-full font-700 font-bold text-[14px] 
           md:text-[16px] leading-[24px] bg-[#CAC5FE] text-[#27282F] "
             >
